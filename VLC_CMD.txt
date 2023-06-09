@@ -1,0 +1,2 @@
+Command buka vlc di cmd:
+vlc http://10.22.65.113:8080

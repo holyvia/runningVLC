@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Server</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+    <link rel="icon" href="./sharesound.png">
+</head>
+
+<body>
+    <div class="form_outer">
+        <h1>Streaming Audio</h1>
+        <h3>Server</h3>
+        <div class="form_content">
+            <div class="field">
+                <label for="FilePath">File Path</label>
+                <input type="text" class="textInput" name="FilePath" id="FilePath">
+            </div>
+            <div class="file_input">
+                <input type="file" name="AudioFile" id="AudioFile" accept="audio/mp3/wav">
+            </div>
+    
+            <button id="startstreaming" onclick="openVLCinJS()">Start streaming</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/eel.js"></script>
+<!-- <script type="text/javascript" src="main.js"></script> -->
+<script>
+
+    async function openVLCinJS() {
+
+        // var full_path =  document.getElementById("AudioFile").value
+        var file_name = document.getElementById("AudioFile").files.item(0).name;
+        var file_path_input = document.getElementById("FilePath");
+        var file_path_value = file_path_input.value;
+        eel.openVLC(file_path_value, file_name);
+        window.location.reload();
+    }
+
+</script>
+
+</html>
